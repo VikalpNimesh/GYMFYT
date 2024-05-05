@@ -1,17 +1,11 @@
-// import express from "express";
-// import dotenv from "dotenv"
-// const app = express();
+import express from "express";
+import cors from "cors"
 
-// // config.require("dotenv")
+const app = express();
 
-// const PORT = process.env.PORT || 3000
+app.use(cors())
 
-// app.get("/", (req, res) => {
-//   res.send("hi there kaise ho");
-// });
+app.use(express.json())
+app.use(express.urlencoded())
 
-// app.post("/", (req, res) => {});
-
-// app.listen(PORT, () => {
-//   console.log("Connected");
-// });
+export  default app
