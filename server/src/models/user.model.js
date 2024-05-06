@@ -10,7 +10,7 @@ const userSchema = new Schema(
       index: true,
     },
     email: {
-      type: String,
+      type: String, 
       required: [true, "email is required"],
       lowercase: true,
       trim: true,
@@ -38,6 +38,10 @@ userSchema.pre("save", async function (next) {
   next();
 });
 
-const User = mongoose.model("User", userSchema);
+userSchema.methods.isPasswordCorrect = async function (password) {
+ return await bcrypt.compare(password, this.password);
+};
 
-module.exports = User;
+
+export const User = mongoose.model("User", userSchema);
+
