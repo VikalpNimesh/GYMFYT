@@ -3,40 +3,60 @@ import { ApiError } from "../utils/ApiError.js";
 import { User } from "../models/user.model.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 
+// **********register*************//
+
 const registerUser = asyncHandler(async (req, res) => {
-  const { userName, email, password, fullName } = req.body;
+  const {
+    firstName,
+    lastName,
+    email,
+    password,
+    messageAlert,
+    phoneNumber,
+    termAndCondition,
+  } = req.body;
 
   console.log(req.body);
 
   if (
-    [fullName, email, userName, password].some((field) => field?.trim() === "")
+    [firstName, lastName, email, password].some((field) => field?.trim() === "")
   ) {
-    throw new ApiError(400, "All fields are required");
+    res.status(201).json(new ApiResponse(400,[] , "All fields are required"));
+    // throw new ApiError(400, "All fields are required");
   }
 
   const existedUser = await User.findOne({
-    $or: [{ userName }, { email }],
+    $or: [{ email }],
   });
 
-
   if (existedUser) {
-    throw new ApiError(409, "User with email or username already exists");
+    res
+      .status(201)
+      .json(new ApiResponse(409,[], "User with email already exists"));
+    // throw new ApiError(409, "User with email already exists");
   }
 
   const user = await User.create({
-    fullName,
-    coverImage: "",
+    firstName,
+    lastName,
     email,
     password,
-    userName: userName.toLowerCase(),
+    phoneNumber,
+    messageAlert,
+    termAndCondition,
   });
-
-  console.log(User);
 
   const createdUser = await User.findById(user._id).select("-password ");
 
+  console.log(createdUser);
+
   if (!createdUser) {
-    throw new ApiError(500, "Something went wrong while registering the user");
+    res
+      .status(201)
+      .json(
+        new ApiResponse(500,[], "Something went wrong while registering the user")
+      );
+    // throw new ApiError(500, "Something went wrong while registering the user");
   }
 
   return res
@@ -44,32 +64,38 @@ const registerUser = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, createdUser, "User registered Successfully"));
 });
 
+
+// ************login**************//
+
 const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
   console.log(req.body);
 
-  if (
-    [email, password].some((field) => field?.trim() === "")
-  ) {
-    throw new ApiError(400, "All fields are required");
+  if ([email, password].some((field) => field?.trim() === "")) {
+    res.status(201).json(new ApiResponse(400,[], "All fields are required"));
+    // throw new ApiError(400, "All fields are required");
   }
 
   const user = await User.findOne({ email }).select("+password");
-  
-console.log(user);
+
+  console.log(user);
   if (!user) {
-    throw new ApiError( 401,"Invalid email or password");
+    res.status(201).json(new ApiResponse(401,[], "Invalid email or password"));
+    // throw new ApiError( 401,"Invalid email or password");
   }
 
   const isPasswordMatched = await user.isPasswordCorrect(password);
 
   if (!isPasswordMatched) {
-  throw new ApiError(401 , "Invalid password ")
-}
-  
-  return res
-  .status(201)
-  .json(new ApiResponse(200, user, "Login Successfull"));
-})
+    res.status(201).json(new ApiResponse(401,[], "Invalid password "));
+    // throw new ApiError(401, "Invalid password ");
+  }
 
-export { registerUser , loginUser};
+  const userdata = await User.findOne({ email }).select("-password");
+
+  return res
+    .status(201)
+    .json(new ApiResponse(200, userdata, "Login Successfull"));
+});
+
+export { registerUser, loginUser };

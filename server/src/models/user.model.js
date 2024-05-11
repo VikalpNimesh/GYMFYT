@@ -4,20 +4,34 @@ const userSchema = new Schema(
   {
     userName: {
       type: String,
-      required: [true, "username is required"],
+      // required: [true, "username is required"],
+      lowercase: true,
+      trim: true,
+      index: true,
+    },
+    firstName: {
+      type: String,
+      required: [true, "firstName is required"],
+      lowercase: true,
+      trim: true,
+      index: true,
+    },
+    lastName: {
+      type: String,
+      required: [true, "lastName is required"],
       lowercase: true,
       trim: true,
       index: true,
     },
     email: {
-      type: String, 
+      type: String,
       required: [true, "email is required"],
       lowercase: true,
       trim: true,
     },
     fullName: {
       type: String,
-      required: [true, "fullname is required"],
+      // required: [true, "fullname is required"],
       lowercase: true,
       trim: true,
     },
@@ -25,7 +39,19 @@ const userSchema = new Schema(
       type: String,
       required: [true, "password is required"],
     },
-    phoneNumber: Number,
+    phoneNumber: {
+      type: Number,
+      // required:[true, "Phone Number is required"],
+    },
+    messageAlert: Boolean,
+
+    termAndCondition: {
+      type: Boolean,
+      required: [true, "t&C  is  required"],
+    },
+    height: Number,
+    weight: Number,
+    age: Number,
     DOB: String,
     profileImage: String,
   },
@@ -39,9 +65,7 @@ userSchema.pre("save", async function (next) {
 });
 
 userSchema.methods.isPasswordCorrect = async function (password) {
- return await bcrypt.compare(password, this.password);
+  return await bcrypt.compare(password, this.password);
 };
 
-
 export const User = mongoose.model("User", userSchema);
-

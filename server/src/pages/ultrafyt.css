@@ -1,0 +1,695 @@
+/*-----------------------------------*\
+  #CUSTOM PROPERTY
+\*-----------------------------------*/
+
+/* @font-face {
+  font-family: robotofont;
+  src: url(../Ultra-fyt/Font/Roboto-Black.ttf);
+} */
+
+:root {
+
+  /** colors**/
+
+
+  --black: hsl(0, 0%, 0%);
+  --white: hsl(0, 0%, 100%);
+  --orange: hsl(25, 80%, 50%);
+
+
+
+
+  /**
+     * typography*/
+
+
+
+
+  --fs-1: .5rem;
+  --fs-2: .7rem;
+  --fs-3: 0.9rem;
+  --fs-4: 1.1rem;
+  --fs-5: 1.3rem;
+  --fs-6: 1.5rem;
+  --fs-7: 3.3rem;
+
+
+
+  --fw-500: 500;
+  --fw-700: 700;
+
+
+
+  /* Shape */
+  --shape: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%);
+}
+
+
+
+/*-----------------------------------*\
+    #RESET
+  \*-----------------------------------*/
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+a,
+img,
+data,
+input,
+button,
+textarea,
+ion-icon {
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  height: auto;
+}
+
+input,
+button,
+textarea {
+  background: none;
+  border: none;
+  font: inherit;
+}
+
+input,
+textarea {
+  width: 100%;
+}
+
+button {
+  cursor: pointer;
+}
+
+address {
+  font-style: normal;
+}
+
+ion-icon {
+  pointer-events: none;
+}
+
+
+
+body {
+  /* background-color: gray; */
+  background-color: var(--black);
+  color: var(--white);
+ font-family: "Roboto", sans-serif;
+ font-weight: 400;
+  font-style: normal;
+}
+
+
+
+/* HEADER */
+
+.header .navbar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  background-color: var(--black);
+  align-items: center;
+  padding: 2vh 8vw;
+  position: fixed;
+  z-index: 100;
+}
+
+.header .logo {
+  width: 8vw;
+  font-size: var(--fs-4);
+}
+
+.navbar-list {
+  display: flex;
+  justify-content: center;
+ 
+  width: 68vw;
+}
+
+.navbar-items {
+  width: 9vw; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--orange);
+  font-size: var(--fs-4);
+clip-path: var(--shape);
+padding: 1vh 1.2vw;
+}
+
+
+
+.header .profile {
+  display: flex;
+  justify-content: flex-end;
+  width: 8vw;
+}
+
+.header .menu {
+  display: none;
+}
+
+
+/* HERO SECTION */
+
+.hero-section {
+  width: 100%;
+  padding-top: 14vh;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.hero-section .hero-content {
+  width: 34vw;
+  font-size: 2.5vw;
+}
+.hero-content span{
+  color: orange;
+}
+
+.hero-section .hero-banner-top {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 86%);
+}
+
+.hero-banner-top img {
+  object-fit: cover;
+  width: 49vw;
+  aspect-ratio: 7/3;
+}
+
+.hero-bottom {
+  padding-top: 0px;
+}
+
+.hero-banner-bottom img {
+  width: 83vw;
+  height: 60vh;
+  object-fit: cover;
+  aspect-ratio: 7/3;
+ 
+  clip-path: polygon(0% 0%, 100% 18%, 100% 100%, 0% 100%);
+  
+}
+
+/* OVERVIEW */
+
+
+.overview {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
+  padding: 5vh 8vw  0vh;
+}
+
+.content {
+  width: 48%;
+  height: 57vh;
+  display: flex;
+  flex-flow: column wrap;
+  gap: 3vw;
+}
+
+
+.dietian{
+  width: 100%;
+  height: 22vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+}
+.dietian h1{
+  font-size:  var(--fs-6);
+}
+.dietian-content{
+  display: flex;
+  flex-direction: row wrap;
+  gap: 2vw;
+
+}
+.dietian-text{
+  padding-top: 1%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow: hidden;
+}
+.dietian-text h2{
+  font-size: var(--fs-4);
+  color: var(--orange);
+}
+.dietian-text p{
+  font-size: var(--fs-3);
+}
+.dietian img{
+  width: 50%;
+  height: 20vh;
+  opacity: 0.9;
+  border-radius: 8px;
+}
+.explore-story{
+  width: 100%;
+  height: 22vh;
+  padding-top: 1%;
+  display: flex;
+  flex-flow: row wrap;
+  
+}
+.explore,.story{
+  width: 50%;
+  height: 22vh;
+ 
+}
+
+.explore img,.story img{
+  width: 94%;
+  height: 21vh;
+  object-fit: cover;
+  padding-top: 1vh;
+  opacity: 0.8;
+  border-radius: 18px;
+}
+.explore h1 ,.story h1{
+  font-size:  var(--fs-6);
+  padding-bottom: 1vh;
+}
+.reserve {
+  width: 50%;
+
+  display: flex;
+  flex-flow: column wrap;
+  gap: 3vh;
+}
+
+ .diet-bg img, .trainer-bg img, .consult-bg img{
+  width: 100%;
+height: 16vh;
+object-fit:cover;
+border-radius: 18px;
+opacity: 0.5;
+}
+.diet .diet-bg, .consult-bg, .trainer-bg{
+  position: relative;
+}
+.diet .diet-text, .consult-text, .trainer-text{
+  width: 90%;
+ display: flex; 
+ align-items: center;
+ justify-content: space-between;
+  position:absolute;
+  left: 2vw;
+  top: 40%;
+}
+.diet-text h1, .consult-text h1, .trainer-text h1{
+  font-size: var(--fs-6);
+  
+  color:rgb(253, 253, 253);
+}
+.diet-text a,.consult-text a, .trainer-text a{
+  font-size: var(--fs-4);
+  color:orange;
+}
+
+/* SCROLL SECTION*/
+
+
+.scroll-section{
+  position: relative;
+  margin: 4vh 0 ;
+}
+.scroll-strip1 {
+  white-space: nowrap;
+  width: 84%;
+  padding: 1px 0vw;
+  position: absolute;
+  top: 0px;
+  margin-left: 8%;
+  overflow: hidden;
+rotate: -1.3deg;
+background-color: orange;
+
+}
+.scroll-strip2{
+white-space: nowrap;
+width: 84%;
+
+padding: 1px 0vw;
+background-color: var(--orange);
+
+margin-left: 8%;
+overflow: hidden;
+rotate: 1.3deg;
+
+}
+
+.scroll-content .scroll-text {
+  display: inline-block;
+  color: white;
+  font-size: var(--fs-3);
+  padding: 0px 25px;
+  
+}
+
+
+ .scroll-content{
+  display:inline-block;
+  animation: marquee-effect 50s linear infinite;
+}
+.scroll-content-reverse{
+  display:inline-block;
+  animation: marquee-effect-reverse 50s linear infinite;
+}
+
+@keyframes marquee-effect {
+  0% {
+      transform: translateX(0);
+  }
+
+  100% {
+      transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee-effect-reverse {
+  0% {
+      transform: translateX(-100%);
+  }
+
+  100% {
+      transform: translateX(0%);
+  }
+}
+
+/* scroll section end */
+
+
+/* FACILITY SECTION */
+
+.facility{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
+  overflow: hidden;
+  padding: 3vh 8vw;
+}
+.connect{
+  width: 52vw;
+  height: 70vh;
+  
+}
+.connect img{
+  width: 100%;
+  height: 100%;
+  opacity: 0.7;
+  border-radius: 18px;
+  object-fit: cover;
+}
+
+.hire{
+  width: 28vw;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+}
+
+.hire .hire-trainer{
+  width: 100%;
+  height: 34vh;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(9.5px);
+  -webkit-backdrop-filter: blur(9.5px);
+  border: 1px solid rgba(255, 255, 255, 0.31);
+  overflow: hidden;
+
+}
+.hire-trainer .hire-trainer-text{
+  position: absolute;
+  top: 5vh;
+  left: 2vw;
+}
+.hire-trainer .hire-trainer-img{
+  position: relative;
+  bottom: 0px;
+  right: 1vw;
+}
+.hire .hire-yoga{
+  width:100%;
+  height: 34vh;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(9.5px);
+  -webkit-backdrop-filter: blur(9.5px);
+  border: 1px solid rgba(255, 255, 255, 0.31);
+  overflow: hidden;
+}
+
+.hire-yoga .hire-yoga-text{
+  position: absolute;
+  top: 5vh;
+  right: 2vw;
+}
+.hire-yoga .hire-yoga-img{
+  position: relative;
+  bottom: 0px;
+  left: 0vw;
+}
+
+.hire-trainer-img img, .hire-yoga-img img{
+
+  width: 100%;
+  height: 34vh;
+  object-fit: cover;
+  
+}
+
+.hire-trainer-text, .hire-yoga-text{
+  display: flex;
+  flex-direction: column;
+  gap: 8vh;
+}
+ .yoga-text{
+  padding: 1vh 1vw;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 18px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5.5px);
+  -webkit-backdrop-filter: blur(5.5px);
+  border: 1px solid rgba(255, 255, 255, 0);
+ font-size: var(--fs-2);
+}
+.hire-trainer-text a, .hire-yoga-text a{
+ 
+  background-color: var(--orange);
+  font-size: var(--fs-4);
+  padding: 7px 1px;
+  clip-path: var(--shape);
+  text-align: center;
+}
+
+
+/* what we offer */
+
+.what-we-offer{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
+  overflow: hidden;
+  padding: 4vh 8vw;
+}
+
+.what-we-offer h1{
+  width: 100%;
+  font-size: 9.9vw;
+  color: black;
+  -webkit-text-stroke: 3px orange;
+  
+}
+
+.container{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  
+  flex-flow: row ;
+  overflow: hidden;
+  gap: 4vw;
+ 
+  }
+
+ .container1{
+    width: 32vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    
+  }
+
+  .container1 .muscle-gain{
+    width: 100%;
+    height: 48%;
+    
+    position: relative;
+  }
+  .muscle-gain img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+    border-radius: 18px;
+  }
+ .container-text{
+    position: absolute;
+    bottom: 4vh;
+    right: 2vw;
+    font-size: var(--fs-7);
+  }
+  .container1 .weight-loss{
+    width: 100%;
+    height: 48%;
+    object-fit: cover;
+    position: relative;
+  }
+  .weight-loss img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+    border-radius: 18px;
+  }
+
+.container2{
+  width: 52vw;
+  height: 100vh;
+  object-fit: cover;
+  position: relative;
+}
+.container2 img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.7;
+  border-radius: 18px;
+}
+
+
+
+
+
+
+/* MEDIA QUERY */
+
+@media (max-width: 1024px) {
+
+  /* body{
+    background-color: grey;
+  } */
+  .header {
+    height: 8vh;
+  }
+
+  .navbar-list,
+  .profileicon {
+    display: none;
+  }
+
+  .header .menu {
+    display: block;
+  }
+
+  .header .logo {
+    font-size: var(--fs-4);
+  }
+
+  .hero {
+    padding-top: 3vh;
+    width: 100%;
+    height: 100%;
+  }
+  .hero-section {
+      padding-top: 0%;
+    }
+
+    .hero-banner-bottom img{
+      height: 60%;
+    }
+    .content,.reserve{
+
+    width: 100%;
+    }
+    .dietian h1,.explore h1 ,.story h1{
+      font-size:  var(--fs-4);
+    }
+    .dietian-text h2{
+      font-size: var(--fs-4);
+    }
+    .dietian-text p{
+      font-size: 10px;
+    }
+    .reserve{
+      padding-top: 2vh;
+    }
+    .facility{
+      flex-direction: column;
+      gap: 4vh;
+    }
+    .facility .connect {
+      width: 100%;
+      height: 45vh;
+    }
+    .facility .hire{
+      width: 100%;
+      height: 50vh;
+    }
+
+    .container{
+      flex-direction: column;
+      width: 84vw;
+      height: 125vh;
+      gap: 3vh;
+      
+    }
+
+    .container1{
+      width: 84vw;
+      height: 80vh;
+    }
+  
+
+
+    .container2{
+      width:84vw;
+      height: 40vh;
+    }
+   
+  }
+
+
+

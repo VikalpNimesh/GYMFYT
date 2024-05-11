@@ -1,0 +1,295 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+
+    /** colors**/
+  
+  
+    --black: hsl(0, 0%, 0%);
+    --white: hsl(0, 0%, 100%);
+    --orange: hsl(25, 80%, 50%);
+  
+  
+  
+  
+    /**
+       * typography*/
+  
+  
+  
+       --fs-1: .5rem;
+       --fs-2: .7rem;
+       --fs-3: 0.9rem;
+       --fs-4: 1.1rem;
+       --fs-5: 1.3rem;
+       --fs-6: 1.5rem;
+       --fs-7: 3.3rem;
+     
+  
+  
+    --fw-500: 500;
+    --fw-700: 700;
+  
+  
+  
+    /* Shape */
+    --shape: polygon(15% 0%, 100% 0%, 85% 100%, 0% 100%);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+body {
+
+    background-color: var(--black);
+    color: var(--white);
+   font-family: "Roboto", sans-serif;
+  
+  }
+ 
+/* HEADER */
+
+.header .navbar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  
+    background-color: var(--black);
+    align-items: center;
+    padding: 2vh 8vw;
+    position: fixed;
+    z-index: 100;
+  }
+  
+  .header .logo {
+    width: 8vw;
+    font-size: var(--fs-4);
+  }
+  
+  .navbar-list {
+    display: flex;
+    justify-content: center;
+   
+    width: 68vw;
+  }
+  
+  .navbar-items {
+    width: 9vw; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--orange);
+    font-size: var(--fs-4);
+  clip-path: var(--shape);
+  padding: 1vh 1.2vw;
+  }
+  
+  
+  
+  .header .profile {
+    display: flex;
+    justify-content: flex-end;
+    width: 8vw;
+  }
+  
+  .header .menu {
+    display: none;
+  }
+  
+
+.login-section{
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    padding: 2vh 8vw;
+    justify-content: center;
+    align-items: center;
+    background: url(../images/3d-gym-equipment_\(5\)[1].jpg),  rgba(0, 0, 0, 0.6);;
+    background-size: cover;
+ background-blend-mode:darken;
+}
+
+.container{
+    width: 100%;
+    max-width: 70%;
+    background: rgba(27, 26, 26, 0.5);
+    backdrop-filter: blur(.5px);
+  
+    padding: 8vh 1vw;
+    margin: 0 28px;
+    border-radius: 10px;
+}
+
+.form-title{
+    font-size: 56px;
+    font-weight: 600;
+    text-align: center;
+    padding-bottom: 16px;
+    color: orange;
+}
+
+.container p{
+    font-size: 26px;
+    font-weight: 200;
+    text-align: center;
+    padding-bottom: 26px;
+    color: white; 
+}
+
+.main-user-info{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.user-input-box:nth-child(2n){
+    justify-content: end;
+}
+
+.user-input-box{
+    display: flex;
+    flex-wrap: wrap;
+    width: 45%;
+}
+
+.user-input-box ::placeholder{
+    width: 95%;
+    color: orange;
+    font-size: 15px;
+    font-weight: 400;
+    margin: 20px 0;
+}
+
+.user-input-box input{
+    height: 40px;
+    width: 95%;
+    outline: none;
+    padding: 0 10px;
+    background: transparent;
+    border-bottom: 2px solid orange;
+    outline: none;
+    border-top: none;
+    color: white;
+    border-left: none;
+    border-right: none;
+    margin: 20px;
+}
+
+.form-login-btn{
+    margin-top: 40px;
+    text-align: center;
+}
+
+.form-login-btn input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 20px;
+    width: 100px;
+    margin: auto;
+    padding: 10px;
+    border: none;
+    color: white;
+    background: orange;
+
+}
+
+.container a{
+    color: white;
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sign-up a{
+    color: orange;
+    top: 5rem;
+    right: 5rem;
+    position: absolute;
+    font-size: 30px;
+  
+}
+
+
+/* SCROLL SECTION*/
+
+
+.scroll-section{
+    position: relative;
+    margin: 4vh 0 ;
+  }
+  .scroll-strip1 {
+    white-space: nowrap;
+    width: 84%;
+    padding: 1px 0vw;
+    position: absolute;
+    top: 0px;
+    margin-left: 8%;
+    overflow: hidden;
+  rotate: -1.3deg;
+  background-color: orange;
+  
+  }
+  .scroll-strip2{
+  white-space: nowrap;
+  width: 84%;
+  
+  padding: 1px 0vw;
+  background-color: var(--orange);
+  
+  margin-left: 8%;
+  overflow: hidden;
+  rotate: 1.3deg;
+  
+  }
+  
+  .scroll-content .scroll-text {
+    display: inline-block;
+    color: white;
+    font-size: var(--fs-3);
+    padding: 0px 25px;
+    
+  }
+  
+  
+   .scroll-content{
+    display:inline-block;
+    animation: marquee-effect 50s linear infinite;
+  }
+  .scroll-content-reverse{
+    display:inline-block;
+    animation: marquee-effect-reverse 50s linear infinite;
+  }
+  
+  @keyframes marquee-effect {
+    0% {
+        transform: translateX(0);
+    }
+  
+    100% {
+        transform: translateX(-100%);
+    }
+  }
+  
+  @keyframes marquee-effect-reverse {
+    0% {
+        transform: translateX(-100%);
+    }
+  
+    100% {
+        transform: translateX(0%);
+    }
+  }
+  
+  /* scroll section end */
