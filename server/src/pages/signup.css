@@ -211,7 +211,7 @@ body {
     text-align: center;
 }
 
-.form-submit-btn input{
+.form-submit-btn button{
     display: flex;
     justify-content: center;
     align-items: center;
